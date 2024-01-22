@@ -1,13 +1,16 @@
-import { CELL_SIZE } from '@/config/consts';
+import { spriteSheetImageAtom } from '@/atoms/spriteSheetImageAtom';
+import { CELL_SIZE } from '@/utils/consts';
 import React, { useEffect, useRef } from 'react';
+import { useRecoilValue } from 'recoil';
 
 interface Props {
   frameCoordinate: string;
   size?: number;
-  image: HTMLImageElement;
 }
 
-function Sprite({ image, frameCoordinate, size = 16 }: Props) {
+function Sprite({ frameCoordinate, size = 16 }: Props) {
+  const spriteSheetImage = useRecoilValue(spriteSheetImageAtom)!;
+
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -23,7 +26,7 @@ function Sprite({ image, frameCoordinate, size = 16 }: Props) {
     const tileSheetY = Number(frameCoordinate.split('x')[1]);
 
     ctx.drawImage(
-      image,
+      spriteSheetImage,
       tileSheetX * CELL_SIZE,
       tileSheetY * CELL_SIZE,
       size,
