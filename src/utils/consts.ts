@@ -1,8 +1,12 @@
 export const CELL_SIZE = 16;
-export const SPRITE_SHEET_SRC = '/ciabattas-revenge-sprites.png';
+export const Z_INDEX_LAYER_SIZE = 10;
+export const SPRITE_SHEET_SRC = '/spritesheet.png';
 
 export const PLACEMENT_TYPE_HERO = 'HERO';
 export const PLACEMENT_TYPE_GOAL = 'GOAL';
+export const PLACEMENT_TYPE_WALL = 'WALL';
+export const PLACEMENT_TYPE_BATTLE_FRAME = 'BATTLE_FRAME';
+export const PLACEMENT_TYPE_ENERGY_DRINK = 'ENERGY_DRINK';
 
 export const DIRECTION_LEFT = 'LEFT';
 export const DIRECTION_RIGHT = 'RIGHT';
@@ -15,6 +19,26 @@ export const directionUpdateMap = {
   [DIRECTION_LEFT]: { x: -1, y: 0 },
   [DIRECTION_RIGHT]: { x: 1, y: 0 },
 };
+
+// character states
+export const BODY_SKINS = {
+  WATER: 'WATER',
+  ICE: 'ICE',
+  CONVEYOR: 'CONVEYOR',
+  FIRE: 'FIRE',
+  TELEPORT: 'TELEPORT',
+  SCARED: 'SCARED',
+};
+
+export const CHARACTERS = {
+  HERO: 'HERO', // hero
+  ROGUE: 'ROGUE', // will
+  CLERIC: 'CLERIC', // boy
+  ENGINEER: 'ENGINEER', // girl
+};
+
+export const HERO_RUN_1 = 'HERO_RUN_1';
+export const HERO_RUN_2 = 'HERO_RUN_2';
 
 export const LEVEL_THEMES = {
   YELLOW: 'YELLOW',

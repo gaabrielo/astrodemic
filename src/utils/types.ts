@@ -4,7 +4,10 @@ export interface LevelProps {
     tilesWidth: number;
     tilesHeight: number;
     placements: LevelPlacementsProps[];
+    isPositionOutOfBounds: () => void;
+    isBattleMode: boolean;
   };
+  battleMode: () => void;
 }
 
 export interface LevelPlacementsProps {

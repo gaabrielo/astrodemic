@@ -1,13 +1,10 @@
 import { spriteSheetImageAtom } from '@/atoms/spriteSheetImageAtom';
 import RenderLevel from '@/components/level-layout/RenderLevel';
 import { SPRITE_SHEET_SRC } from '@/utils/consts';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 
 export default function App() {
-  // const [spriteSheetImage, setSpriteSheetImage] =
-  //   useState<HTMLImageElement | null>(null);
-
   const [spriteSheetImage, setSpriteSheetImage] =
     useRecoilState<any>(spriteSheetImageAtom);
 

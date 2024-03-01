@@ -3,6 +3,7 @@ import {
   DIRECTION_LEFT,
   DIRECTION_RIGHT,
   DIRECTION_UP,
+  Z_INDEX_LAYER_SIZE,
 } from '@/utils/consts';
 import { LevelProps } from '@/utils/types';
 
@@ -23,6 +24,9 @@ export class Placement {
   travelPixelsPerFrame: number;
   movingPixelsRemaining: number;
   movingPixelsDirection: string;
+  spriteFacingDirection: string;
+  spriteWalkFrame: number;
+  hasBeenCollected: boolean;
 
   constructor(properties: PlacementProperties, level: LevelProps) {
     this.id = properties.id;
@@ -34,9 +38,25 @@ export class Placement {
     this.travelPixelsPerFrame = 1.5;
     this.movingPixelsRemaining = 0;
     this.movingPixelsDirection = DIRECTION_RIGHT;
+    this.spriteFacingDirection = DIRECTION_RIGHT;
+    this.spriteWalkFrame = 0;
+
+    this.hasBeenCollected = false;
   }
 
   tick() {}
+
+  isSolidForBody(_body) {
+    return false;
+  }
+
+  addsItemToInventoryOnCollide() {
+    return null;
+  }
+
+  renderBattleInCollide() {
+    return false;
+  }
 
   displayXY() {
     if (this.movingPixelsRemaining > 0) {
@@ -62,6 +82,15 @@ export class Placement {
       default:
         return [x, y + progressPixels];
     }
+  }
+
+  collect() {
+    this.hasBeenCollected = true;
+  }
+
+  zIndex() {
+    // return 1;
+    return this.y * Z_INDEX_LAYER_SIZE;
   }
 
   renderComponent(): React.ReactElement | null {
