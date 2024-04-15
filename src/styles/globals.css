@@ -154,7 +154,12 @@ canvas {
   }
 }
 
-@layer base {
+@font-face {
+  font-family: 'Handwritten';
+  src: url('/fonts/Llawysgrifen.ttf') format('truetype');
+}
+
+/* @layer base {
   * {
     @apply border-border;
   }
@@ -162,4 +167,4 @@ canvas {
     @apply bg-background text-foreground;
     font-feature-settings: 'rlig' 1, 'calt' 1;
   }
-}
+} */

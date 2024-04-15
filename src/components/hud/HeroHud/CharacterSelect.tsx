@@ -6,7 +6,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/primitives/Select';
+} from '@/components/ui/primitives/Select';
 import { CHARACTERS } from '@/utils/consts';
 import { useRecoilState } from 'recoil';
 

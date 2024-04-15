@@ -98,3 +98,15 @@ export const THEME_TILES_MAP = {
     WALL: '12x2',
   },
 };
+
+// ADMIN
+export const twStyles = {
+  light: {
+    text: {
+      title: {
+        primary: '',
+        secondary: 'text-zinc-500 text-sm',
+      },
+    },
+  },
+};

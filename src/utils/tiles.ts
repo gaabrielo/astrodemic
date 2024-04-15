@@ -157,11 +157,80 @@ export const TILES = {
   CIABATTA_DEAD: '14x4',
   CIABATTA_BLAST: '6x3',
 
-  // Battle
+  // Battle room
   BATTLE_FRAME_TOP_LEFT: '15x8',
   BATTLE_FRAME_TOP_RIGHT: '16x8',
   BATTLE_FRAME_BOTTOM_RIGHT: '16x9',
   BATTLE_FRAME_BOTTOM_LEFT: '15x9',
 
   BATTLE_FRAME_TOP_LEFT_DISABLED: '17x8',
+};
+
+export const MAKER_SELECTABLE_TILES = {
+  // Basics
+  SHADOW: { xy: '1x3' },
+  FLOUR: {
+    xy: '2x3',
+    keywords: ['soda'],
+    translation: { pt_BR: 'Refrigerante' },
+  },
+  FIRE_PICKUP: { xy: '3x3' },
+  ICE_PICKUP: { xy: '4x3' },
+  WATER_PICKUP: { xy: '5x3' },
+  BULLET_PICKUP: { xy: '4x9' },
+  BULLET: { xy: '3x9' },
+
+  // Fire
+  FIRE1: { xy: '0x7', keywords: ['floor', 'fire'] },
+  FIRE2: { xy: '1x7', keywords: ['floor', 'fire'] },
+  FIRE3: { xy: '2x7' },
+
+  // Conveyors
+  CONVEYOR_DOWN: { xy: '0x8' },
+  CONVEYOR_UP: { xy: '1x8' },
+  CONVEYOR_RIGHT: { xy: '2x8' },
+  CONVEYOR_LEFT: { xy: '3x8' },
+
+  // Other Tiles
+  BULLET_DROPBOX: { xy: '2x9' },
+
+  // Spawns
+  ENEMY_LEFT_SPAWN: { xy: '4x8' },
+  ENEMY_RIGHT_SPAWN: { xy: '5x8' },
+  ENEMY_UP_SPAWN: { xy: '6x8' },
+  ENEMY_DOWN_SPAWN: { xy: '7x8' },
+  ENEMY_FLYING_LEFT_SPAWN: { xy: '8x8' },
+  ENEMY_FLYING_RIGHT_SPAWN: { xy: '9x8' },
+  ENEMY_FLYING_UP_SPAWN: { xy: '10x8' },
+  ENEMY_FLYING_DOWN_SPAWN: { xy: '11x8' },
+  ENEMY_ROAMING_SPAWN: { xy: '12x8' },
+  HERO_SPAWN: { xy: '13x8' },
+  CIABATTA_SPAWN: { xy: '14x8' },
+
+  //Goal
+  GOAL_DISABLED: { xy: '0x9' },
+  GOAL_ENABLED: { xy: '1x9' },
+
+  //Switches, Other
+  PURPLE_BUTTON: { xy: '0x10' },
+  PURPLE_DOOR_OUTLINE: { xy: '1x10' },
+  PURPLE_DOOR_SOLID: { xy: '2x10' },
+  TELEPORT1: { xy: '3x10' },
+  TELEPORT2: { xy: '4x10' },
+  TELEPORT3: { xy: '5x10' },
+  TELEPORT4: { xy: '6x10' },
+
+  THIEF: { xy: '7x10' },
+  WARNING: { xy: '8x10' },
+
+  // Ciabatta
+  CIABATTA1: { xy: '5x4', size: 48 },
+  CIABATTA2: { xy: '8x4', size: 48 },
+
+  BATTLE_FRAME_TOP_LEFT: { xy: '15x8' },
+  BATTLE_FRAME_TOP_RIGHT: { xy: '16x8' },
+  BATTLE_FRAME_BOTTOM_RIGHT: { xy: '16x9' },
+  BATTLE_FRAME_BOTTOM_LEFT: { xy: '15x9' },
+
+  BATTLE_FRAME_TOP_LEFT_DISABLED: { xy: '17x8' },
 };
