@@ -99,7 +99,7 @@ export const THEME_TILES_MAP = {
   },
 };
 
-// ADMIN
+// DASH
 export const twStyles = {
   light: {
     text: {
@@ -109,4 +109,24 @@ export const twStyles = {
       },
     },
   },
+};
+
+export const dashTabs = {
+  maps: {
+    label: 'Meus mapas',
+  },
+  journey: {
+    label: 'Sequências didáticas',
+  },
+
+  maker: {
+    label: 'Criar cenários',
+    url: '/maker',
+  },
+  futureLog: {
+    label: 'Atualizações futuras',
+  },
+  // profile: {
+  //   label: 'Configurações',
+  // },
 };

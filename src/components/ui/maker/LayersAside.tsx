@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { EditableTextContainer } from '@/components/ui/primitives/EditableTextContainer';
-import { SortableList } from '@/components/ui/sortable-list';
+import { EditableTextContainer } from '@/components/ui/shared/EditableTextContainer';
+import { SortableList } from '@/components/ui/shared/sortable-list';
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@/components/ui/tooltip';
+} from '@/components/ui/primitives/tooltip';
 import { Button } from '@/components/ui/primitives/Button';
 import { EyeIcon, PlusIcon } from 'lucide-react';
 
@@ -70,7 +70,7 @@ export function LayersAside() {
 
   return (
     <div
-      className="w-full h-screen flex flex-col gap-3.5 overflow-y-auto scrollbar-thin 
+      className="w-full h-screen flex flex-col gap-3.5 overflow-y-scroll scrollbar-thin scrollbar-thumb-rounded-full
     scrollbar-thumb-neutral-200 hover:scrollbar-thumb-neutral-300 scrollbar-track-transparent"
     >
       <div className="px-3 pt-3.5 bg-white sticky top-0 z-40">
@@ -92,13 +92,13 @@ export function LayersAside() {
             <SortableList.Item
               id={item.id}
               className={`group bg-background z-30 ${
-                selectedLayer == item.id ? 'bg-accent z-20' : ''
+                item.id == selectedLayer ? 'bg-accent z-20' : ''
               }`}
               onClick={() => handleSelectLayer(item.id)}
             >
               <div
-                className="flex items-center text-sm text-slate-600 group-hover:text-slate-900 transition-all overflow-ellipsis 
-              overflow-hidden whitespace-nowrap w-full"
+                className="flex items-center text-sm text-slate-600 group-hover:text-slate-900 
+                transition-all overflow-ellipsis overflow-hidden whitespace-nowrap w-full"
               >
                 <Button
                   size="icon"
@@ -110,7 +110,8 @@ export function LayersAside() {
                     )
                   }
                   className={`max-w-fit px-1 ${
-                    item.id == selectedLayer && 'text-slate-950'
+                    item.id == selectedLayer &&
+                    'text-slate-950 hover:brightness-95'
                   }`}
                 >
                   {item?.hidden ? (
@@ -136,10 +137,16 @@ export function LayersAside() {
               </div>
 
               <SortableList.DeleteHandle
-                className="hidden group-hover:flex max-w-fit px-1 mr-0 ml-auto"
+                className={`hidden group-hover:flex max-w-fit px-1 mr-0 ml-auto ${
+                  item.id == selectedLayer ? 'hover:brightness-95' : ''
+                }`}
                 onClick={(e: any) => handleLayerDeletion(e, item.id)}
               />
-              <SortableList.DragHandle className="hidden group-hover:flex max-w-fit px-1" />
+              <SortableList.DragHandle
+                className={`hidden group-hover:flex max-w-fit px-1 ${
+                  item.id == selectedLayer ? 'hover:brightness-95' : ''
+                }`}
+              />
             </SortableList.Item>
           )}
         />

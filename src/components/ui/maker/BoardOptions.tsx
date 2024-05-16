@@ -1,68 +1,72 @@
-import { Label } from '@/components/ui/label';
+import { Label } from '@/components/ui/primitives/label';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/components/ui/popover';
+} from '@/components/ui/primitives/popover';
 import { Button } from '@/components/ui/primitives/Button';
 import { Input } from '@/components/ui/primitives/Input';
-import { twStyles } from '@/utils/consts';
 import { cn } from '@/utils/helpers';
-import {
-  ChevronDownIcon,
-  Grid3X3Icon,
-  MessageSquarePlusIcon,
-  MinusIcon,
-  PenIcon,
-  PencilIcon,
-  PlusIcon,
-  PlusSquareIcon,
-  RulerIcon,
-} from 'lucide-react';
+import { MinusIcon, PlusIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { Separator } from '@/components/ui/primitives/Separator';
 
-export function BoardOptions({ boardSize, setBoardSize }: any) {
+export function BoardOptions({ boardSize, setBoardSize, shadow = true }: any) {
   return (
     <Popover>
       <PopoverTrigger asChild>
         <Button
           variant="secondary"
-          className="items-center font-normal leading-none"
+          className={`items-center font-normal leading-none text-zinc-600 hover:text-slate-950 transition-all ${
+            !shadow && 'shadow-none'
+          }`}
+          size={'sm'}
         >
-          {/* <RulerIcon className="mr-2 w-5 h-5" /> */}
           {boardSize[0]} x {boardSize[1]}
         </Button>
       </PopoverTrigger>
 
-      <PopoverContent className="w-80" side="bottom" align="end" asChild>
-        <div>
-          <p className={twStyles.light.text.title.secondary}>
-            Tamanho do quadro
-          </p>
+      <PopoverContent
+        className="w-80 p-1 pb-2 mt-[0.315rem]"
+        side="bottom"
+        align="end"
+      >
+        <p
+          className={
+            'text-neutral-500 uppercase text-sm font-normal px-2 py-1.5'
+          }
+        >
+          Tamanho do quadro
+        </p>
 
-          <div className="grid gap-3 mt-3">
-            <div className="grid grid-cols-3 items-center gap-4">
-              <Label htmlFor="columns">Colunas</Label>
-              <InputNumber
-                className="col-span-2"
-                id="columns"
-                defaultValue={boardSize[0]}
-                setValue={(newVal: number) =>
-                  setBoardSize((prev: any) => [newVal, prev[1]])
-                }
-              />
-            </div>
-            <div className="grid grid-cols-3 items-center gap-4">
-              <Label htmlFor="lines">Linhas</Label>
-              <InputNumber
-                className="col-span-2"
-                id="lines"
-                defaultValue={boardSize[1]}
-                setValue={(newVal: number) =>
-                  setBoardSize((prev: any) => [prev[0], newVal])
-                }
-              />
-            </div>
+        <Separator />
+
+        <div className="grid gap-2 mt-4 mx-2">
+          <div className="grid grid-cols-3 items-center gap-4">
+            <Label htmlFor="columns" className="text-slate-700">
+              Colunas
+            </Label>
+            <InputNumber
+              className="col-span-2"
+              id="columns"
+              defaultValue={boardSize[0]}
+              setValue={(newVal: number) =>
+                setBoardSize((prev: any) => [newVal, prev[1]])
+              }
+            />
+          </div>
+          <div className="grid grid-cols-3 items-center gap-4">
+            <Label htmlFor="lines" className="text-slate-700">
+              Linhas
+            </Label>
+            <InputNumber
+              className="col-span-2"
+              id="lines"
+              defaultValue={boardSize[1]}
+              setValue={(newVal: number) =>
+                setBoardSize((prev: any) => [prev[0], newVal])
+              }
+            />
           </div>
         </div>
       </PopoverContent>

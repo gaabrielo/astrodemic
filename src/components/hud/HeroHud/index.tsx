@@ -14,7 +14,7 @@ export function HeroHud({ level }: any) {
   const energyNeeded = 3;
 
   return (
-    <div className="absolute left-6 top-6 bg-white rounded-md border-2 border-b-4 border-gray-800 p-3 flex items-center gap-3 font-mono">
+    <div className="absolute left-6 top-6  bg-white rounded-md border-2 border-b-4 border-gray-800 p-3 flex items-center gap-3 font-mono">
       {/* <div className="flex items-center w-full gap-3 bg-slate-100 p-4 rounded-md shadow-inner shadow-input"></div> */}
       <div className="bg-yellow-400 rounded-2xl px-3 py-2 font-semibold flex gap-3 text-slate-950">
         <Sun
@@ -27,8 +27,6 @@ export function HeroHud({ level }: any) {
       <Item src={'/lamen-icon.svg'} count={currentEnergy} />
       <Item src={'/clover-icon.svg'} count={currentEnergy} />
 
-      <Separator orientation="vertical" />
-
       {/* <div className="w-full text-right">
         <progress value={currentEnergy} max={energyNeeded} className="w-full" />
         <span>
@@ -40,8 +38,9 @@ export function HeroHud({ level }: any) {
         <div className="w-full h-[1px] bg-gray-400" />
       </div>
 
-      <CharacterSelect /> */}
-      <SettingsMenu />
+       */}
+      <CharacterSelect />
+      {/* <SettingsMenu /> */}
     </div>
   );
 }

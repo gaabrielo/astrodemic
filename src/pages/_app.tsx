@@ -3,11 +3,13 @@ import type { AppProps } from 'next/app';
 import { RecoilRoot } from 'recoil';
 import { Rubik } from 'next/font/google';
 
-import '../components/ui/sortable-list/components/SortableItem/SortableItem.css';
+import '../components/ui/shared/sortable-list/components/SortableItem/SortableItem.css';
 
 const rubik = Rubik({ subsets: ['latin'] });
 
 export default function App({ Component, pageProps }: AppProps) {
+  const getLayout = Component.getLayout ?? ((page) => page);
+
   return (
     <RecoilRoot>
       <style jsx global>{`
@@ -15,7 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
           font-family: ${rubik.style.fontFamily};
         }
       `}</style>
-      <Component {...pageProps} />
+      {getLayout(<Component {...pageProps} />)}
     </RecoilRoot>
   );
 }

@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 export function Item({ count, src }: { count: number; src: string }) {
   return (
-    <div className="flex items-baseline w-fit relative mr-2">
+    <div className="flex items-baseline w-12 h-12 relative mr-2">
       <img
         src={src}
         alt="Energy drink count"

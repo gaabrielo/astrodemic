@@ -154,6 +154,33 @@ canvas {
   }
 }
 
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 0.5rem;
+    /* background: #f7f4ed; */
+    background: #fff;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #e5e7eb;
+    border-radius: 0.5rem;
+    /* border: 3px solid #f6f7ed; */
+    border: 3px solid #fff;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #d1d5db;
+  }
+}
+
 @font-face {
   font-family: 'Handwritten';
   src: url('/fonts/Llawysgrifen.ttf') format('truetype');

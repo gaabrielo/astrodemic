@@ -166,6 +166,7 @@ export const TILES = {
   BATTLE_FRAME_TOP_LEFT_DISABLED: '17x8',
 };
 
+// MAKER
 export const MAKER_SELECTABLE_TILES = {
   // Basics
   SHADOW: { xy: '1x3' },
@@ -224,13 +225,14 @@ export const MAKER_SELECTABLE_TILES = {
   WARNING: { xy: '8x10' },
 
   // Ciabatta
-  CIABATTA1: { xy: '5x4', size: 48 },
-  CIABATTA2: { xy: '8x4', size: 48 },
+  // area: [width, height]
+  CIABATTA1: { xy: '5x4', area: [3, 3] },
+  CIABATTA2: { xy: '8x4', area: [3, 3] },
 
-  BATTLE_FRAME_TOP_LEFT: { xy: '15x8' },
-  BATTLE_FRAME_TOP_RIGHT: { xy: '16x8' },
-  BATTLE_FRAME_BOTTOM_RIGHT: { xy: '16x9' },
-  BATTLE_FRAME_BOTTOM_LEFT: { xy: '15x9' },
+  BATTLE_FRAME: { xy: '15x8', area: [2, 2] },
+  BATTLE_FRAME_DISABLED: { xy: '17x8', area: [2, 2] },
+  // BATTLE_FRAME_BOTTOM_RIGHT: { xy: '16x9' },
+  // BATTLE_FRAME_BOTTOM_LEFT: { xy: '15x9' },
 
-  BATTLE_FRAME_TOP_LEFT_DISABLED: { xy: '17x8' },
+  // BATTLE_FRAME_TOP_LEFT_DISABLED: { xy: '17x8' },
 };

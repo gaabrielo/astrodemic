@@ -28,7 +28,7 @@ export function CharacterSelect() {
         setCurrentCharacterName(val);
       }}
     >
-      <SelectTrigger>
+      <SelectTrigger className="w-40">
         <SelectValue placeholder={translate[currentCharacterName]} />
       </SelectTrigger>
       <SelectContent>
