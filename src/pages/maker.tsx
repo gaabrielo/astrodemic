@@ -2,12 +2,12 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-import { LayersAside } from '@/components/ui/maker/LayersAside';
+import { LayersAside } from '@/components/web/maker/LayersAside';
 import {
   BoardMenu,
   mapPlacementButtons,
-} from '@/components/ui/maker/BoardMenu';
-import { SpritesAside } from '@/components/ui/maker/SpritesAside';
+} from '@/components/web/maker/BoardMenu';
+import { SpritesAside } from '@/components/web/maker/SpritesAside';
 
 import {
   ResizableHandle,
@@ -21,10 +21,10 @@ import { createSnapModifier, snapCenterToCursor } from '@dnd-kit/modifiers';
 import { useRecoilState } from 'recoil';
 import { SPRITE_SHEET_SRC } from '@/utils/consts';
 import { spriteSheetImageAtom } from '@/atoms/spriteSheetImageAtom';
-import SpriteAsideItem from '@/components/ui/maker/SpriteAsideItem';
+import SpriteAsideItem from '@/components/web/maker/SpriteAsideItem';
 import { MAKER_SELECTABLE_TILES } from '@/utils/tiles';
-import { ProfileMenu } from '@/components/ui/maker/ProfileMenu';
-import { Board } from '@/components/ui/maker/Board';
+import { ProfileMenu } from '@/components/web/maker/ProfileMenu';
+import { Board } from '@/components/web/maker/Board';
 
 const theme = {
   dark: {

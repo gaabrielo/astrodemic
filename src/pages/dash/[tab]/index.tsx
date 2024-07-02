@@ -1,13 +1,13 @@
-import { Button } from '@/components/ui/button';
-import DashLayout from '@/components/ui/dash/DashLayout';
-import { DashPageJourney } from '@/components/ui/dash/pages/DashPageJourney';
-import { Separator } from '@/components/ui/primitives/Separator';
-import { Skeleton } from '@/components/ui/skeleton';
-import { supabase } from '@/services/supabase';
+import DashLayout from '@/components/web/dash/DashLayout';
+import { AlertCard } from '@/components/web/dash/components/AlertCard';
+import { DashPageHeader } from '@/components/web/dash/components/DashPageHeader';
+import { DashPageFutureLog } from '@/components/web/dash/pages/DashPageFutureLog';
+import { DashPageHome } from '@/components/web/dash/pages/DashPageHome';
+import { DashPageJourneyList } from '@/components/web/dash/pages/DashPageJourneyList';
+import { DashPageReport } from '@/components/web/dash/pages/DashPageReport';
+import { DashPageSearchLevel } from '@/components/web/dash/pages/DashPageSearchLevel';
 import { dashTabs } from '@/utils/consts';
-import { PlusCircleIcon } from 'lucide-react';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 
 export default function DashPages() {
   const router = useRouter();
@@ -17,45 +17,53 @@ export default function DashPages() {
 
     switch (router.query.tab) {
       case 'journey':
-        return <DashPageJourney />;
+        return <DashPageJourneyList />;
+
+      case 'home':
+        return <DashPageHome />;
+
+      case 'futureLog':
+        return <DashPageFutureLog />;
+
+      case 'report':
+        return <DashPageReport />;
+
+      case 'search':
+        return <DashPageSearchLevel />;
+
+      default:
+        return (
+          <AlertCard
+            title={'Página não encontrada'}
+            subtitle={
+              'O conteúdo foi removido ou pode não estar disponível no momento.'
+            }
+          />
+        );
     }
   }
 
   function getActiveTabLabel() {
     if (!router) return;
-
     return dashTabs[router.query.tab];
   }
 
-  useEffect(() => {
-    getUserData();
-  }, []);
+  // useEffect(() => {
+  //   getUserData();
+  // }, []);
 
-  const getUserData = async () => {
-    const userSession = await supabase.auth.getSession();
-    console.log('🚀 ~ getUserData ~ userSession:', userSession);
-    const user = await supabase.auth.getUser();
-    console.log('🚀 ~ getUserData ~ user:', user);
-  };
+  // const getUserData = async () => {
+  //   const userSession = await supabase.auth.getSession();
+  // };
 
   return (
-    // <DashLayout>
-    <div className="flex-1 p-3 pb-8 h-fit">
-      <div className="w-full max-w-3xl mx-auto flex flex-col">
-        <header className="flex justify-between">
-          <h1 className="text-xl mt-1 font-bold">
-            {getActiveTabLabel()?.label ?? (
-              <Skeleton className="w-full max-w-48 h-7" />
-            )}
-          </h1>
-        </header>
-
-        <Separator className="mt-5 mb-8" />
+    <div className="w-full overflow-hidden p-3 pb-8 h-fit">
+      <div className="w-full flex flex-col flex-1">
+        <DashPageHeader title={getActiveTabLabel()?.label ?? null} />
 
         {getActiveTab()}
       </div>
     </div>
-    // </DashLayout>
   );
 }
 

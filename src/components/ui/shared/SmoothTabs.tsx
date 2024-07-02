@@ -3,6 +3,7 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import clsx from 'clsx';
+import { useRouter } from 'next/router';
 
 export function SmoothTabs({
   itemClassName,
@@ -11,13 +12,20 @@ export function SmoothTabs({
   tabs = [],
   id = 'default',
 }: any) {
+  // console.log('🚀 ~ tabs:', tabs);
+  console.log('🚀 ~ selected:', selected);
+  // console.log('🚀 ~ id:', id);
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState<any>(null);
 
   useEffect(() => {
     if (typeof selected === 'number') {
-      setActiveTab(tabs[selected]?.props.name);
+      const selectedTabName = tabs.find((t) => t.props.id === selected);
+      setActiveTab(selectedTabName.props.name);
     }
   }, [selected]);
+
+  // useEffect(() => {}, [])
 
   return (
     <div className={`flex ${orientation === 'vertical' ? 'flex-col' : ''}`}>

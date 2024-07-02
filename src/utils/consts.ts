@@ -112,19 +112,37 @@ export const twStyles = {
 };
 
 export const dashTabs = {
-  maps: {
-    label: 'Meus mapas',
+  home: {
+    label: 'Home',
+    path: '/dash/home',
+    id: 0,
+  },
+  search: {
+    label: 'Buscar mapas',
+    path: '/dash/search',
+    id: 1,
   },
   journey: {
     label: 'Sequências didáticas',
+    path: '/dash/journey',
+    id: 2,
   },
 
+  report: {
+    label: 'Relatório',
+    path: '/dash/report',
+    id: 3,
+  },
   maker: {
     label: 'Criar cenários',
-    url: '/maker',
+    // url: '/maker',
+    path: '/maker',
+    id: 4,
   },
   futureLog: {
-    label: 'Atualizações futuras',
+    label: 'Em breve',
+    path: '/dash/futureLog',
+    id: 5,
   },
   // profile: {
   //   label: 'Configurações',
