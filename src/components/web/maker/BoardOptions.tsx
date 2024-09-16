@@ -29,7 +29,7 @@ export function BoardOptions({ boardSize, setBoardSize, shadow = true }: any) {
       <PopoverContent
         className="w-80 p-1 pb-2 mt-[0.315rem]"
         side="bottom"
-        align="end"
+        align="center"
       >
         <p
           className={

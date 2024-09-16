@@ -1,8 +1,8 @@
 import { cn } from '@/utils/helpers';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 
-interface Props {
+interface Props extends ReactElement {
   src: string;
   alt?: string;
   className?: string;

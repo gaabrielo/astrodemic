@@ -23,25 +23,29 @@ export function CharacterSelect() {
   );
 
   return (
-    <Select
-      onValueChange={(val) => {
-        setCurrentCharacterName(val);
-      }}
-    >
-      <SelectTrigger className="w-40">
-        <SelectValue placeholder={translate[currentCharacterName]} />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          {Object.keys(CHARACTERS).map((c: string, idx: number) => {
-            return (
-              <SelectItem value={c ?? 'unnamed' + idx}>
-                {translate[c] ?? 'unnamed' + idx}
-              </SelectItem>
-            );
-          })}
-        </SelectGroup>
-      </SelectContent>
-    </Select>
+    <div className="flex flex-col gap-1">
+      <span className="text-xs text-zinc-700">Alterar personagem:</span>
+
+      <Select
+        onValueChange={(val) => {
+          setCurrentCharacterName(val);
+        }}
+      >
+        <SelectTrigger className="w-40">
+          <SelectValue placeholder={translate[currentCharacterName]} />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectGroup>
+            {Object.keys(CHARACTERS).map((c: string, idx: number) => {
+              return (
+                <SelectItem value={c ?? 'unnamed' + idx}>
+                  {translate[c] ?? 'unnamed' + idx}
+                </SelectItem>
+              );
+            })}
+          </SelectGroup>
+        </SelectContent>
+      </Select>
+    </div>
   );
 }

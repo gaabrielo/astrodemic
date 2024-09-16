@@ -18,6 +18,7 @@ const level = {
       y: 8,
       type: PLACEMENT_TYPE_HERO,
     },
+
     // { id: 1, x: 6, y: 4, type: PLACEMENT_TYPE_GOAL },
     { id: 2, x: 4, y: 2, type: PLACEMENT_TYPE_WALL },
     { id: 2, x: 4, y: 5, type: PLACEMENT_TYPE_WALL },
@@ -32,6 +33,7 @@ const level = {
     { id: 5, x: 8, y: 2, type: PLACEMENT_TYPE_ENERGY_DRINK },
 
     { id: 5, x: 24, y: 3, type: PLACEMENT_TYPE_ENERGY_DRINK },
+    { id: 5, x: 24, y: 4, type: PLACEMENT_TYPE_ENERGY_DRINK },
     { id: 5, x: 22, y: 2, type: PLACEMENT_TYPE_WALL },
     { id: 5, x: 23, y: 2, type: PLACEMENT_TYPE_WALL },
     { id: 5, x: 24, y: 2, type: PLACEMENT_TYPE_WALL },

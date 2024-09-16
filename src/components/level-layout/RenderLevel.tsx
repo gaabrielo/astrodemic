@@ -28,10 +28,12 @@ export default function RenderLevel() {
     );
 
     // get initial state
-    // setLevel(levelState.getState());
+    setLevel(levelState.getState());
 
     // destroy method when component unmounts
-    return () => levelState.destroy();
+    return () => {
+      levelState.destroy();
+    };
   }, [currentLevelId, characterName]);
 
   if (!level) return null;

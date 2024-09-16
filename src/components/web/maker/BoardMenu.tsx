@@ -6,6 +6,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
+  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/components/ui/primitives/Dropdown';
 import { Separator } from '@/components/ui/primitives/Separator';
@@ -14,7 +15,6 @@ import { PlacementButton } from '@/components/ui/shared/PlacementButton';
 import { cn } from '@/utils/helpers';
 import {
   BrushIcon,
-  ChevronDownIcon,
   CircleUserIcon,
   CopyIcon,
   DownloadIcon,
@@ -35,6 +35,20 @@ import {
   Trash2Icon,
 } from 'lucide-react';
 import { ButtonHTMLAttributes, ReactNode, useRef, useState } from 'react';
+
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/primitives/popover';
+import { DropdownMenuArrow } from '@radix-ui/react-dropdown-menu';
+import {
+  ChevronDownIcon,
+  Pencil1Icon,
+  Pencil2Icon,
+  PinBottomIcon,
+} from '@radix-ui/react-icons';
+import { Input } from '@/components/ui/primitives/Input';
 
 const ICON_STYLE = `w-4 h-4 subpixel-antialiased`;
 
@@ -142,9 +156,7 @@ export function BoardMenu({
             {btn.icon}
           </PlacementButton>
         ))}
-
         <Divider />
-
         <PlacementButton
           selectable={false}
           tooltipContent={'Importar imagem'}
@@ -159,7 +171,6 @@ export function BoardMenu({
             ref={imageInputRef}
           />
         </PlacementButton>
-
         <PlacementButton
           selectable={false}
           tooltipContent={'Mostrar/esconder grid'}
@@ -171,18 +182,16 @@ export function BoardMenu({
             <EyeIcon className={ICON_STYLE} />
           )}
         </PlacementButton>
-
         <BoardOptions
           boardSize={boardSize}
           setBoardSize={setBoardSize}
           shadow={false}
         />
-
         <Divider />
-
-        <PlacementButton selectable={false} tooltipContent={'Salvar'}>
+        {/* <PlacementButton selectable={false} tooltipContent={'Salvar'}>
           <DownloadIcon className={ICON_STYLE} />
-        </PlacementButton>
+        </PlacementButton> */}
+        <SaveButton />
         <PlacementButton
           className="rounded-r-2xl rounded-l-md"
           selected={true}
@@ -255,6 +264,35 @@ export function BoardMenu({
         </DropdownMenu>
       </div> */}
     </>
+  );
+}
+
+function SaveButton() {
+  const [isEditingName, setIsEditingName] = useState(false);
+
+  if (!!isEditingName) {
+    return <Input autoFocus className="w-32 h-7" value="Quarto" />;
+  }
+
+  function handleEditName() {
+    setIsEditingName(true);
+  }
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger className="flex items-center text-sm gap-1 py-1.5 text-slate-500 hover:text-slate-900 transition-all">
+        Quarto
+        <ChevronDownIcon />
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="mt-[0.315rem] min-w-40">
+        {/* <DropdownMenuItem className="cursor-pointer" onClick={handleEditName}>
+          Renomear <Pencil1Icon />
+        </DropdownMenuItem> */}
+        <DropdownMenuItem className="cursor-pointer">
+          Salvar <PinBottomIcon />
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }
 

@@ -155,8 +155,6 @@ export function JourneyPage({ levelId }: any) {
   }, [levelId]);
 
   function handleSelectClass(classDt) {
-    // console.log('🚀 ~ handleSelectClass ~ classDt:', classDt);
-
     if (classDt) {
       setSelectedClass(formatClassFields(classDt));
     }

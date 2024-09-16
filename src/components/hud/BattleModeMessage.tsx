@@ -8,7 +8,7 @@ export default function BattleModeMessage() {
   return (
     <div className="flex items-center">
       <h1 className="inline">
-        Você gastará <strong>5 energéticos</strong> para essa batalha
+        Você gastará <strong>4 energéticos</strong> para essa batalha
       </h1>
 
       <div className="bg-red-400 h-full w-2 px-4" />

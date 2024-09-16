@@ -24,6 +24,7 @@ export async function getLevel(id: number) {
     *,
     class ( *, class_challenge (*) ),
     level_participants ( *, users (*) )
+    level_cover ( * )
   `
     )
     .eq('id', id)

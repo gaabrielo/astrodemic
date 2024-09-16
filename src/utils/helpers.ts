@@ -16,3 +16,19 @@ export const getURL = (path = '') => {
   url = url.charAt(url.length - 1) === '/' ? url + path : `${url}/${path}`;
   return url;
 };
+
+export const getYtbThumbnailUrl = (path = '') => {
+  let thumbUrl;
+
+  const videoIdMatch = path.match(
+    /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
+  );
+
+  const videoId = videoIdMatch ? videoIdMatch[1] : null;
+
+  if (videoId) {
+    thumbUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+  }
+
+  return thumbUrl;
+};

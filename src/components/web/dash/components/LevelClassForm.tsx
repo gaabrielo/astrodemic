@@ -50,8 +50,6 @@ export function LevelClassForm({
   setDefaultData,
   id,
 }: any) {
-  console.log('🚀 ~ defaultData:', defaultData);
-
   const [isChallengeFormActive, setIsChallengeFormActive] = useState<
     null | boolean
   >(null);
@@ -156,7 +154,7 @@ export function LevelClassForm({
       >
         {/* <div className="bg-white shrink rounded-t-lg shadow-lg overflow-y-scroll overflow-hidden flex-1 scrollbar"> */}
         <header className="flex items-center">
-          <p className="text-lg font-medium text-slate-700">
+          <p className="text-base font-medium text-slate-700">
             {id() ? <>Aula {id()}</> : 'Cadastrar videoaula'}
           </p>
           {/* <Button
@@ -243,7 +241,7 @@ export function LevelClassForm({
 
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-lg font-medium text-slate-700">Desafios</h3>
+              <h3 className="text-base font-medium text-slate-700">Desafios</h3>
               <p className="text-sm text-neutral-500 mt-1">
                 Os desafios serão apresentados sequencialmente ao jogador
               </p>

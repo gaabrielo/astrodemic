@@ -24,8 +24,8 @@ export function HeroHud({ level }: any) {
         <span>DIA 1</span>
       </div>
       <Item src={'/energy-drink-icon.svg'} count={currentEnergy} />
-      <Item src={'/lamen-icon.svg'} count={currentEnergy} />
-      <Item src={'/clover-icon.svg'} count={currentEnergy} />
+      {/* <Item src={'/lamen-icon.svg'} count={currentEnergy} />
+      <Item src={'/clover-icon.svg'} count={currentEnergy} /> */}
 
       {/* <div className="w-full text-right">
         <progress value={currentEnergy} max={energyNeeded} className="w-full" />
